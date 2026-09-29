@@ -4,6 +4,7 @@ import useSWR from 'swr';
 import { supabase } from '../services/supabase';
 import AnimeCard from '../components/ui/AnimeCard';
 
+// Fetcher khusus SWR untuk mengambil data dari 'animes' yang is_nezuko_choice = true
 const fetchNezukoAnimes = async () => {
   const { data } = await supabase
     .from('animes')

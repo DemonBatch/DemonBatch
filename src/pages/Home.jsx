@@ -4,7 +4,7 @@ import useSWR from 'swr';
 import { supabase } from '../services/supabase';
 import AnimeCard from '../components/ui/AnimeCard';
 
-// Fetcher khusus untuk SWR (mengambil data anime terbaru & populer sekaligus)
+// Fetcher khusus SWR untuk mengambil data anime terbaru & terpopuler dari tabel 'animes'
 const fetchHomeData = async () => {
   const [latest, popular] = await Promise.all([
     supabase.from('animes').select('*').order('created_at', { ascending: false }),
@@ -22,7 +22,7 @@ export default function Home() {
   
   // Implementasi SWR dengan cache otomatis
   const { data, isLoading } = useSWR('home_data', fetchHomeData, {
-    revalidateOnFocus: false // Mencegah fetch ulang setiap kali user ganti tab browser
+    revalidateOnFocus: false
   });
 
   const animes = data?.animes || [];
@@ -58,7 +58,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Gambar hero banner menggunakan fetch eager agar tidak terjadi delay visual */}
+        {/* Gambar hero banner */}
         <img 
           src="https://wdpnjsmlhyiitnfeynjt.supabase.co/storage/v1/object/public/Asset%20Demon%20Batch/Karakter/Tanziro.webp" 
           alt="Tanjiro" 

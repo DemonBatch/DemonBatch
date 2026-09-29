@@ -13,7 +13,7 @@ export default function Detail() {
     const fetchAnimeDetail = async () => {
       setIsLoading(true);
       
-      // 1. Ambil detail Anime dari tabel animes
+      // 1. Ambil detail Anime dari tabel 'animes'
       const { data: animeData } = await supabase
         .from('animes')
         .select('*')
@@ -23,19 +23,19 @@ export default function Detail() {
       if (animeData) {
         setDetail(animeData);
         
-        // Menambahkan jumlah penayangan (views) otomatis
+        // Menambahkan jumlah penayangan (views) otomatis pada tabel 'animes'
         await supabase
           .from('animes')
           .update({ views: (animeData.views || 0) + 1 })
           .eq('id', id);
       }
 
-      // 2. Ambil data link download dari tabel downloads
+      // 2. Ambil data link download dari tabel 'downloads' berdasarkan 'anime_id'
       const { data: downloadData } = await supabase
         .from('downloads')
         .select('*')
         .eq('anime_id', id)
-        .order('quality', { ascending: false }); // Urutkan resolusi 1080p, 720p, dst
+        .order('quality', { ascending: false });
 
       if (downloadData) {
         setDownloads(downloadData);
