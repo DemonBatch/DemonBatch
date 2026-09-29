@@ -28,25 +28,25 @@ export default function NezukoEdition() {
   const categories = [
     { 
       name: 'Semua', 
-      imgSrc: 'https://simp6.cuckcapital.cr/images4/b6ccf7ef-a5c4-4b16-a65f-38ba4e5f7ee4.webp',
+      imgSrc: 'https://wdpnjsmlhyiitnfeynjt.supabase.co/storage/v1/object/public/Asset%20Demon%20Batch/ChibiKarakter/Nezuko/iconnexukosemuakategory.webp',
       desc: 'Semua koleksi pilihan Nezuko', 
       count: animes.length 
     },
     { 
       name: 'Action & Fantasy', 
-      imgSrc: 'https://simp6.cuckcapital.cr/images4/38b51dfc-3764-45ac-bfcb-0f1a50a847d4.webp',
+      imgSrc: 'https://wdpnjsmlhyiitnfeynjt.supabase.co/storage/v1/object/public/Asset%20Demon%20Batch/ChibiKarakter/Nezuko/iconnezukoactionfantasy.webp',
       desc: 'Pertarungan seru dunia fantasi', 
       count: animes.filter(a => a.category?.includes('Action') || a.category?.includes('Fantasy')).length 
     },
     { 
       name: 'Romance', 
-      imgSrc: 'https://simp6.cuckcapital.cr/images4/381a4a4b-b22a-4b5a-81ed-4c0108ff95f4.webp', 
+      imgSrc: 'https://wdpnjsmlhyiitnfeynjt.supabase.co/storage/v1/object/public/Asset%20Demon%20Batch/ChibiKarakter/Nezuko/iconrmancenezuko.webp', 
       desc: 'Kisah cinta romantis & heartwarming', 
       count: animes.filter(a => a.category?.includes('Romance')).length
     },
     { 
       name: 'Slice of Life', 
-      imgSrc: 'https://simp6.cuckcapital.cr/images4/fba08583-c3b7-403f-a854-777d1791d06d.webp',
+      imgSrc: 'https://wdpnjsmlhyiitnfeynjt.supabase.co/storage/v1/object/public/Asset%20Demon%20Batch/ChibiKarakter/Nezuko/iconnezukosliceoflife.webp',
       desc: 'Keseharian santai dan menghibur', 
       count: animes.filter(a => a.category?.includes('Slice of Life')).length
     }
@@ -88,7 +88,7 @@ export default function NezukoEdition() {
         </div>
 
         <img 
-          src="https://simp6.cuckcapital.cr/images4/91bbb8e6-19c7-4212-b0c3-015bd053e7f4.webp" 
+          src="https://wdpnjsmlhyiitnfeynjt.supabase.co/storage/v1/object/public/Asset%20Demon%20Batch/Karakter/Nezuko.webp" 
           alt="Nezuko" 
           className="relative md:absolute right-0 md:right-10 md:bottom-0 h-[280px] md:h-[480px] w-auto object-contain z-20 drop-shadow-2xl pointer-events-none"
         />
@@ -165,7 +165,7 @@ export default function NezukoEdition() {
       ) : (
         <div className="text-center py-12 bg-white rounded-3xl border border-slate-100 smooth-shadow flex flex-col items-center justify-center">
           <img 
-            src="https://simp6.cuckcapital.cr/images4/49b01bb5-a866-4969-a3a8-4546fb31bf5a.webp" 
+            src="https://wdpnjsmlhyiitnfeynjt.supabase.co/storage/v1/object/public/Asset%20Demon%20Batch/ChibiKarakter/Nezuko/iconekategorybelum%20tersedia.webp" 
             alt="Anime Tidak Ditemukan" 
             className="w-28 h-28 object-contain mb-4 drop-shadow-lg pointer-events-none"
           />

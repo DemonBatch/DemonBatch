@@ -69,7 +69,7 @@ export default function Home() {
         </div>
 
         <img 
-          src="https://simp6.cuckcapital.cr/images4/c9e47bcd-deac-4742-ba97-4f8c20c7d2c0.webp" 
+          src="https://wdpnjsmlhyiitnfeynjt.supabase.co/storage/v1/object/public/Asset%20Demon%20Batch/Karakter/Tanziro.webp" 
           alt="Tanjiro" 
           className="relative md:absolute right-0 md:right-10 md:bottom-0 h-[280px] md:h-[480px] w-auto object-contain z-20 drop-shadow-2xl pointer-events-none"
         />
