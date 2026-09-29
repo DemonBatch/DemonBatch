@@ -1,30 +1,25 @@
 // src/pages/NezukoEdition.jsx
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import useSWR from 'swr';
 import { supabase } from '../services/supabase';
 import AnimeCard from '../components/ui/AnimeCard';
 
+const fetchNezukoAnimes = async () => {
+  const { data } = await supabase
+    .from('animes')
+    .select('*')
+    .eq('is_nezuko_choice', true)
+    .order('created_at', { ascending: false });
+  return data || [];
+};
+
 export default function NezukoEdition() {
-  const [animes, setAnimes] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('Semua');
-  const [isLoading, setIsLoading] = useState(true);
+  
+  const { data: animes = [], isLoading } = useSWR('nezuko_animes', fetchNezukoAnimes, {
+    revalidateOnFocus: false
+  });
 
-  useEffect(() => {
-    const fetchNezukoAnimes = async () => {
-      setIsLoading(true);
-      const { data } = await supabase
-        .from('animes')
-        .select('*')
-        .eq('is_nezuko_choice', true) // Filter khusus Nezuko Edition
-        .order('created_at', { ascending: false });
-        
-      if (data) setAnimes(data);
-      setIsLoading(false);
-    };
-
-    fetchNezukoAnimes();
-  }, []);
-
-  // Kategori dinamis menghitung data yang ada di database
   const categories = [
     { 
       name: 'Semua', 
@@ -90,6 +85,7 @@ export default function NezukoEdition() {
         <img 
           src="https://wdpnjsmlhyiitnfeynjt.supabase.co/storage/v1/object/public/Asset%20Demon%20Batch/Karakter/Nezuko.webp" 
           alt="Nezuko" 
+          loading="eager"
           className="relative md:absolute right-0 md:right-10 md:bottom-0 h-[280px] md:h-[480px] w-auto object-contain z-20 drop-shadow-2xl pointer-events-none"
         />
       </section>
@@ -123,6 +119,7 @@ export default function NezukoEdition() {
                     <img 
                       src={cat.imgSrc} 
                       alt={`${cat.name} icon`} 
+                      loading="lazy"
                       className="h-20 w-auto object-contain drop-shadow-xl -ml-2 -mt-2 pointer-events-none" 
                     />
                   )}
@@ -166,7 +163,8 @@ export default function NezukoEdition() {
         <div className="text-center py-12 bg-white rounded-3xl border border-slate-100 smooth-shadow flex flex-col items-center justify-center">
           <img 
             src="https://wdpnjsmlhyiitnfeynjt.supabase.co/storage/v1/object/public/Asset%20Demon%20Batch/ChibiKarakter/Nezuko/iconekategorybelum%20tersedia.webp" 
-            alt="Anime Tidak Ditemukan" 
+            alt="Anime Tidak Ditemukan"
+            loading="lazy" 
             className="w-28 h-28 object-contain mb-4 drop-shadow-lg pointer-events-none"
           />
           <p className="text-slate-500 font-bold">Belum ada anime untuk kategori ini.</p>

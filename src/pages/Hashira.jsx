@@ -1,5 +1,6 @@
 // src/pages/Hashira.jsx
 import { useState } from 'react';
+import useSWR from 'swr';
 import { Link } from 'react-router-dom';
 
 export default function Hashira() {
