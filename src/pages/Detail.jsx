@@ -69,7 +69,7 @@ export default function Detail() {
         </div>
 
         <img 
-          src="https://simp6.cuckcapital.cr/images4/6177c7ab-ff68-4293-bd33-63812805e4ba.webp" 
+          src="https://wdpnjsmlhyiitnfeynjt.supabase.co/storage/v1/object/public/Asset%20Demon%20Batch/Karakter/Zenitsu.webp" 
           alt="Zenitsu" 
           className="relative md:absolute right-0 md:right-16 md:-bottom-6 h-[250px] md:h-[420px] w-auto object-contain z-20 drop-shadow-2xl pointer-events-none"
         />
